@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+<!-- saved from url=(0049)file:///Users/frenchcorner/Downloads/order_2.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Order Online | French Corner — Fresh French Café Carlsbad &amp; Encinitas CA</title>
+  <meta name="description" content="Order online from French Corner — authentic French crêpes, baguette sandwiches, specialty espresso and pastries. Pickup in 15 min or delivery. Carlsbad &amp; Encinitas CA. No third-party fees.">
+  <link href="./Order_files/css2" rel="stylesheet">
+  <script src="./Order_files/saved_resource"></script>
+  <style>
+    :root {
+      --red: #c8191a; --black: #111; --white: #fff;
+      --offwhite: #fafaf8; --border: #e8e8e6; --mid: #888;
+      --light: #f3f2f0;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: "Jost", sans-serif; background: var(--offwhite); color: var(--black); overflow-x: hidden; }
+    img { max-width: 100%; display: block; }
+    a { text-decoration: none; color: inherit; }
+    button { font-family: "Jost", sans-serif; }
+
+    /* NAV */
+    .topnav { position: sticky; top: 0; z-index: 100; background: var(--white); border-bottom: 1px solid var(--black); display: flex; align-items: center; justify-content: space-between; padding: 0 36px; height: 68px; }
+    .nl { display: flex; gap: 26px; list-style: none; }
+    .nl a { font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: var(--black); transition: color 0.2s; }
+    .nl a:hover, .nl a.active { color: var(--red); }
+    .btn-order { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; background: var(--red); color: var(--white); border: none; padding: 11px 22px; cursor: pointer; transition: background 0.2s; }
+    .btn-order:hover { background: var(--black); }
+
+    /* PAGE HERO */
+    .page-hero { background: var(--black); padding: 48px 36px 44px; border-bottom: 1px solid #1e1e1e; }
+    .page-hero-inner { max-width: 980px; margin: 0 auto; }
+    .ph-eyebrow { font-size: 9px; letter-spacing: 4px; text-transform: uppercase; color: var(--red); margin-bottom: 10px; }
+    .ph-title { font-family: "Playfair Display", serif; font-size: 38px; font-style: italic; color: var(--white); line-height: 1.2; margin-bottom: 8px; }
+    .ph-sub { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.45); line-height: 2; }
+
+    /* LOCATION + TYPE SELECTOR */
+    .selector-bar { background: var(--white); border-bottom: 1px solid var(--border); padding: 0 36px; }
+    .selector-inner { max-width: 980px; margin: 0 auto; display: flex; gap: 0; align-items: stretch; flex-wrap: wrap; }
+    .sel-group { display: flex; align-items: center; gap: 16px; padding: 16px 0; border-right: 1px solid var(--border); padding-right: 28px; margin-right: 28px; flex-wrap: wrap; gap: 10px; }
+    .sel-group:last-child { border-right: none; }
+    .sel-label { font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: var(--mid); white-space: nowrap; }
+    .sel-btn { font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; border: 1px solid var(--border); background: transparent; color: var(--mid); padding: 8px 16px; cursor: pointer; transition: all 0.2s; white-space: nowrap; }
+    .sel-btn.active { background: var(--black); color: var(--white); border-color: var(--black); }
+    .sel-btn:hover:not(.active) { border-color: var(--black); color: var(--black); }
+
+    /* MAIN LAYOUT */
+    .order-layout { max-width: 1100px; margin: 0 auto; padding: 40px 36px; display: grid; grid-template-columns: 1fr 360px; gap: 40px; align-items: start; }
+
+    /* MENU PANEL */
+    .menu-panel { min-width: 0; }
+    .cat-nav { display: flex; gap: 0; overflow-x: auto; border-bottom: 1px solid var(--border); margin-bottom: 32px; white-space: nowrap; }
+    .cat-nav a { display: inline-block; font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: var(--mid); padding: 12px 16px; border-bottom: 2px solid transparent; transition: all 0.2s; cursor: pointer; }
+    .cat-nav a:hover { color: var(--black); }
+    .cat-nav a.active { color: var(--red); border-bottom-color: var(--red); }
+
+    .menu-section { margin-bottom: 44px; }
+    .section-header { display: flex; align-items: center; gap: 16px; margin-bottom: 20px; }
+    .section-title { font-family: "Playfair Display", serif; font-size: 24px; font-style: italic; color: var(--black); }
+    .section-rule { flex: 1; height: 1px; background: var(--border); }
+
+    .menu-item { display: flex; align-items: center; gap: 16px; padding: 14px 0; border-bottom: 0.5px solid var(--border); transition: background 0.15s; }
+    .menu-item:last-child { border-bottom: none; }
+    .item-info { flex: 1; min-width: 0; }
+    .item-name { font-family: "Cormorant Garamond", serif; font-size: 18px; font-style: italic; font-weight: 600; color: var(--black); margin-bottom: 3px; line-height: 1.2; }
+    .item-desc { font-size: 11px; color: var(--mid); line-height: 1.6; font-weight: 300; }
+    .item-badge { display: inline-block; font-size: 7px; letter-spacing: 1px; text-transform: uppercase; color: var(--red); border: 0.5px solid var(--red); padding: 1px 5px; margin-left: 6px; vertical-align: middle; font-style: normal; font-family: "Jost", sans-serif; font-weight: 400; }
+    .item-right { display: flex; align-items: center; gap: 14px; flex-shrink: 0; }
+    .item-price { font-family: "Cormorant Garamond", serif; font-size: 17px; font-weight: 600; color: var(--black); white-space: nowrap; min-width: 36px; text-align: right; }
+    .add-btn { width: 32px; height: 32px; border-radius: 50%; background: var(--white); border: 1.5px solid var(--border); color: var(--black); font-size: 18px; cursor: pointer; display: flex; align-items: center; justify-content: center; line-height: 1; transition: all 0.2s; flex-shrink: 0; }
+    .add-btn:hover { background: var(--red); border-color: var(--red); color: var(--white); }
+    .add-btn.added { background: var(--black); border-color: var(--black); color: var(--white); }
+
+    /* CART PANEL */
+    .cart-panel { background: var(--white); border: 1px solid var(--border); position: sticky; top: 108px; }
+    .cart-header { padding: 20px 24px 16px; border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; }
+    .cart-title { font-family: "Playfair Display", serif; font-size: 18px; font-style: italic; }
+    .cart-count { font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--mid); }
+    .cart-items { padding: 0 24px; min-height: 120px; max-height: 340px; overflow-y: auto; }
+    .cart-empty { padding: 40px 0; text-align: center; }
+    .cart-empty-icon { font-size: 28px; margin-bottom: 10px; opacity: 0.3; }
+    .cart-empty-text { font-size: 11px; color: var(--mid); letter-spacing: 1px; text-transform: uppercase; }
+    .cart-item { display: flex; align-items: flex-start; gap: 10px; padding: 14px 0; border-bottom: 0.5px solid var(--border); }
+    .cart-item:last-child { border-bottom: none; }
+    .ci-name { font-size: 13px; font-weight: 400; flex: 1; line-height: 1.4; }
+    .ci-qty { display: flex; align-items: center; gap: 6px; }
+    .qty-btn { width: 22px; height: 22px; border: 1px solid var(--border); background: transparent; cursor: pointer; font-size: 13px; display: flex; align-items: center; justify-content: center; color: var(--black); transition: all 0.15s; line-height: 1; }
+    .qty-btn:hover { background: var(--black); color: var(--white); border-color: var(--black); }
+    .qty-num { font-size: 12px; width: 18px; text-align: center; }
+    .ci-price { font-family: "Cormorant Garamond", serif; font-size: 15px; font-weight: 600; white-space: nowrap; }
+
+    .cart-footer { padding: 16px 24px 20px; border-top: 1px solid var(--border); }
+    .cart-subtotal { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; }
+    .cart-subtotal span:first-child { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--mid); }
+    .cart-subtotal span:last-child { font-family: "Cormorant Garamond", serif; font-size: 17px; font-weight: 600; }
+    .cart-service { font-size: 10px; color: var(--mid); text-align: right; margin-bottom: 16px; }
+    .checkout-btn { width: 100%; background: var(--red); color: var(--white); border: none; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; padding: 14px; cursor: pointer; transition: background 0.2s; }
+    .checkout-btn:hover { background: var(--black); }
+    .checkout-btn:disabled { background: #ccc; cursor: not-allowed; }
+    .cart-note { font-size: 10px; color: var(--mid); text-align: center; margin-top: 10px; line-height: 1.7; }
+    .secure-icons { display: flex; align-items: center; justify-content: center; gap: 6px; margin-top: 8px; opacity: 0.4; font-size: 9px; letter-spacing: 1.5px; text-transform: uppercase; }
+
+    /* CHECKOUT OVERLAY */
+    .overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.6); z-index: 200; align-items: center; justify-content: center; padding: 20px; }
+    .overlay.open { display: flex; }
+    .modal { background: var(--white); width: 100%; max-width: 520px; max-height: 90vh; overflow-y: auto; }
+    .modal-header { padding: 24px 28px 20px; border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; }
+    .modal-title { font-family: "Playfair Display", serif; font-size: 22px; font-style: italic; }
+    .modal-close { background: none; border: none; font-size: 22px; cursor: pointer; color: var(--mid); line-height: 1; }
+    .modal-body { padding: 24px 28px; }
+
+    .form-row { margin-bottom: 18px; }
+    .form-row label { display: block; font-size: 9px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--mid); margin-bottom: 7px; }
+    .form-row input, .form-row select, .form-row textarea {
+      width: 100%; border: 1px solid var(--border); background: var(--offwhite); padding: 11px 14px;
+      font-family: "Jost", sans-serif; font-size: 13px; color: var(--black); outline: none;
+      transition: border-color 0.2s;
+    }
+    .form-row input:focus, .form-row select:focus, .form-row textarea:focus { border-color: var(--black); }
+    .form-row textarea { resize: vertical; min-height: 72px; }
+    .form-2col { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+
+    .order-summary { background: var(--offwhite); padding: 16px; margin-bottom: 20px; }
+    .os-title { font-size: 9px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--mid); margin-bottom: 12px; }
+    .os-line { display: flex; justify-content: space-between; font-size: 12px; margin-bottom: 6px; }
+    .os-line.total { border-top: 1px solid var(--border); margin-top: 8px; padding-top: 8px; font-weight: 500; }
+
+    #stripe-card-element { border: 1px solid var(--border); padding: 12px 14px; background: var(--offwhite); }
+    #stripe-card-element.StripeElement--focus { border-color: var(--black); }
+
+    .payment-label { font-size: 9px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--mid); margin-bottom: 7px; display: block; margin-top: 18px; }
+    #card-errors { color: var(--red); font-size: 12px; margin-top: 8px; min-height: 18px; }
+
+    .pay-btn { width: 100%; background: var(--red); color: var(--white); border: none; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; padding: 15px; cursor: pointer; margin-top: 20px; transition: background 0.2s; }
+    .pay-btn:hover { background: #a01213; }
+    .pay-btn:disabled { background: #ccc; cursor: not-allowed; }
+
+    .stripe-badge { display: flex; align-items: center; justify-content: center; gap: 6px; margin-top: 12px; font-size: 10px; color: var(--mid); opacity: 0.6; }
+
+    /* SUCCESS */
+    .success-modal { text-align: center; padding: 48px 28px; }
+    .success-check { font-size: 48px; margin-bottom: 16px; }
+    .success-title { font-family: "Playfair Display", serif; font-size: 26px; font-style: italic; margin-bottom: 10px; }
+    .success-sub { font-size: 12px; color: var(--mid); line-height: 1.8; margin-bottom: 24px; }
+    .success-eta { background: var(--offwhite); padding: 14px 20px; display: inline-block; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--red); margin-bottom: 24px; }
+    .close-btn { background: var(--black); color: var(--white); border: none; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; padding: 13px 28px; cursor: pointer; }
+
+    /* FOOTER */
+    footer { background: #0a0a0a; padding: 40px 36px 20px; margin-top: 0; }
+    .ft { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px; padding-bottom: 28px; border-bottom: 0.5px solid #1e1e1e; margin-bottom: 18px; }
+    .ft-fr { font-family: "Playfair Display", serif; font-size: 20px; font-style: italic; color: var(--red); }
+    .ft-ln { height: 1px; background: #333; margin: 4px 0 10px; }
+    .ft-co { font-size: 8px; letter-spacing: 4px; text-transform: uppercase; color: #555; margin-bottom: 12px; }
+    .ft-tg { font-size: 12px; color: #555; line-height: 1.9; }
+    .fc h4 { font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: #444; margin-bottom: 12px; }
+    .fc a { display: block; font-size: 12px; color: #555; line-height: 2.4; }
+    .fc a:hover { color: var(--white); }
+    .fc p { font-size: 12px; color: #555; line-height: 2; }
+    .ft-bot { display: flex; justify-content: space-between; font-size: 11px; color: #333; }
+
+    /* PICKUP TIME */
+    .pickup-banner { background: #f0fdf4; border: 1px solid #bbf7d0; padding: 12px 24px; margin: 0 0 0 0; display: flex; align-items: center; gap: 10px; }
+    .pickup-dot { width: 8px; height: 8px; border-radius: 50%; background: #22c55e; flex-shrink: 0; animation: pulse 2s infinite; }
+    @keyframes pulse { 0%,100%{opacity:1;} 50%{opacity:0.4;} }
+    .pickup-text { font-size: 11px; color: #166534; letter-spacing: 0.5px; }
+
+    @media(max-width: 768px) {
+      .topnav { padding: 0 16px; }
+      .nl { display: none; }
+      .order-layout { grid-template-columns: 1fr; padding: 24px 16px; gap: 24px; }
+      .cart-panel { position: static; }
+      .selector-bar { padding: 0 16px; }
+      .sel-group { border-right: none; padding-right: 0; margin-right: 0; border-bottom: 1px solid var(--border); width: 100%; }
+      .sel-group:last-child { border-bottom: none; }
+      .ft { grid-template-columns: 1fr; gap: 24px; }
+      .page-hero { padding: 32px 16px 28px; }
+      .form-2col { grid-template-columns: 1fr; }
+      footer { padding: 32px 16px 16px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="topnav">
+  <div style="cursor:pointer;" onclick="window.location=&#39;index.html&#39;">
+    <img src="data:image/png;base64,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" alt="French Corner Logo" style="height:52px;width:auto;">
+  </div>
+  <ul class="nl">
+    <li><a href="file:///Users/frenchcorner/Downloads/index.html">Home</a></li>
+    <li><a href="file:///Users/frenchcorner/Downloads/menu.html">Le Menu</a></li>
+    <li><a href="file:///Users/frenchcorner/Downloads/catering.html">Catering</a></li>
+    <li><a href="file:///Users/frenchcorner/Downloads/index.html#locations">Locations</a></li>
+    <li><a href="file:///Users/frenchcorner/Downloads/blog.html">Blog</a></li>
+  </ul>
+  <button class="btn-order active">Order now</button>
+</nav>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <p class="ph-eyebrow">Commander en ligne</p>
+    <h1 class="ph-title">Order Online</h1>
+    <p class="ph-sub">Pickup ready in 15 min &nbsp;·&nbsp; Delivery available &nbsp;·&nbsp; Both locations &nbsp;·&nbsp; No third-party fees</p>
+  </div>
+</div>
+
+<!-- LOCATION & TYPE SELECTOR -->
+<div class="selector-bar">
+  <div class="selector-inner">
+    <div class="sel-group">
+      <span class="sel-label">Location</span>
+      <button class="sel-btn active" onclick="selectLocation(this,&#39;carlsbad&#39;)">Carlsbad Blvd</button>
+      <button class="sel-btn" onclick="selectLocation(this,&#39;encinitas&#39;)">Encinitas</button>
+    </div>
+    <div class="sel-group">
+      <span class="sel-label">Order type</span>
+      <button class="sel-btn active" onclick="selectType(this,&#39;pickup&#39;)">🛍 Pickup</button>
+      <button class="sel-btn" onclick="selectType(this,&#39;delivery&#39;)">🚗 Delivery</button>
+    </div>
+    <div class="sel-group" style="border-right:none;margin-right:0;">
+      <div class="pickup-banner" id="pickup-banner">
+        <div class="pickup-dot"></div>
+        <span class="pickup-text" id="pickup-text"><strong>Now open</strong> &nbsp;· Pickup ready in ~15 min</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MAIN ORDER LAYOUT -->
+<div class="order-layout">
+
+  <!-- MENU PANEL -->
+  <div class="menu-panel">
+    <div class="cat-nav" id="catNav">
+      <a class="active" onclick="scrollTo(&#39;cafe&#39;)">Les Cafés</a>
+      <a onclick="scrollTo(&#39;specialty&#39;)">Specialty</a>
+      <a onclick="scrollTo(&#39;breakfast&#39;)">Breakfast</a>
+      <a onclick="scrollTo(&#39;omelettes&#39;)">Omelettes</a>
+      <a onclick="scrollTo(&#39;sweet&#39;)">Sweet Crêpes</a>
+      <a onclick="scrollTo(&#39;savory&#39;)">Savory Crêpes</a>
+      <a onclick="scrollTo(&#39;sandwiches&#39;)">Sandwiches</a>
+      <a onclick="scrollTo(&#39;salads&#39;)">Salads</a>
+      <a onclick="scrollTo(&#39;tartines&#39;)">Tartines</a>
+      <a onclick="scrollTo(&#39;specialties&#39;)">Specialties</a>
+    </div>
+
+    <!-- SECTION: LES CAFÉS -->
+    <div class="menu-section" id="sec-cafe">
+      <div class="section-header">
+        <h2 class="section-title">Les Cafés</h2>
+        <div class="section-rule"></div>
+      </div>
+      <div id="items-cafe"></div>
+    </div>
+
+    <!-- SECTION: SPECIALTY ESPRESSO -->
+    <div class="menu-section" id="sec-specialty">
+      <div class="section-header">
+        <h2 class="section-title">Specialty Espresso</h2>
+        <div class="section-rule"></div>
+      </div>
+      <div id="items-specialty"></div>
+    </div>
+
+    <!-- SECTION: BREAKFAST -->
+    <div class="menu-section" id="sec-breakfast">
+      <div class="section-header">
+        <h2 class="section-title">Petit Déjeuner</h2>
+        <div class="section-rule"></div>
+      </div>
+      <div id="items-breakfast"></div>
+    </div>
+
+    <!-- SECTION: OMELETTES -->
+    <div class="menu-section" id="sec-omelettes">
+      <div class="section-header">
+        <h2 class="section-title">Omelettes</h2>
+        <div class="section-rule"></div>
+      </div>
+      <div id="items-omelettes"></div>
+    </div>
+
+    <!-- SECTION: SWEET CRÊPES -->
+    <div class="menu-section" id="sec-sweet">
+      <div class="section-header">
+        <h2 class="section-title">Sweet Crêpes</h2>
+        <div class="section-rule"></div>
+      </div>
+      <div id="items-sweet"></div>
+    </div>
+
+    <!-- SECTION: SAVORY CRÊPES -->
+    <div class="menu-section" id="sec-savory">
+      <div class="section-header">
+        <h2 class="section-title">Savory Crêpes</h2>
+        <div class="section-rule"></div>
+      </div>
+      <div id="items-savory"></div>
+    </div>
+
+    <!-- SECTION: SANDWICHES -->
+    <div class="menu-section" id="sec-sandwiches">
+      <div class="section-header">
+        <h2 class="section-title">Sandwiches Baguette</h2>
+        <div class="section-rule"></div>
+      </div>
+      <div id="items-sandwiches"></div>
+    </div>
+
+    <!-- SECTION: SALADS -->
+    <div class="menu-section" id="sec-salads">
+      <div class="section-header">
+        <h2 class="section-title">Salades</h2>
+        <div class="section-rule"></div>
+      </div>
+      <div id="items-salads"></div>
+    </div>
+
+    <!-- SECTION: TARTINES -->
+    <div class="menu-section" id="sec-tartines">
+      <div class="section-header">
+        <h2 class="section-title">Tartines</h2>
+        <div class="section-rule"></div>
+      </div>
+      <div id="items-tartines"></div>
+    </div>
+
+    <!-- SECTION: SPECIALTIES -->
+    <div class="menu-section" id="sec-specialties">
+      <div class="section-header">
+        <h2 class="section-title">Specialties</h2>
+        <div class="section-rule"></div>
+      </div>
+      <div id="items-specialties"></div>
+    </div>
+
+  </div><!-- /menu-panel -->
+
+  <!-- CART PANEL -->
+  <div class="cart-panel">
+    <div class="cart-header">
+      <span class="cart-title">Votre commande</span>
+      <span class="cart-count" id="cartCount">0 items</span>
+    </div>
+    <div class="cart-items" id="cartItems">
+      <div class="cart-empty">
+        <div class="cart-empty-icon">🥐</div>
+        <div class="cart-empty-text">Your cart is empty</div>
+      </div>
+    </div>
+    <div class="cart-footer">
+      <div class="cart-subtotal">
+        <span>Subtotal</span>
+        <span id="cartSubtotal">$0.00</span>
+      </div>
+      <div class="cart-service">+ 3% service charge at checkout</div>
+      <button class="checkout-btn" id="checkoutBtn" onclick="openCheckout()" disabled="">Proceed to checkout →</button>
+      <p class="cart-note">Pickup in ~15 min after confirmation<br>Secure payment via Stripe</p>
+      <div class="secure-icons">🔒 SSL encrypted &nbsp;·&nbsp; Powered by Stripe</div>
+    </div>
+  </div>
+
+</div><!-- /order-layout -->
+
+<!-- CHECKOUT MODAL -->
+<div class="overlay" id="checkoutOverlay" onclick="closeOnBackdrop(event)">
+  <div class="modal" id="checkoutModal">
+    <div class="modal-header">
+      <span class="modal-title">Complete your order</span>
+      <button class="modal-close" onclick="closeCheckout()">×</button>
+    </div>
+    <div class="modal-body" id="modalBody">
+
+      <!-- ORDER SUMMARY -->
+      <div class="order-summary">
+        <div class="os-title">Order Summary</div>
+        <div id="modalSummary"></div>
+        <div class="os-line total">
+          <span>Total (incl. 3% service)</span>
+          <span id="modalTotal">$0.00</span>
+        </div>
+      </div>
+
+      <!-- CUSTOMER INFO -->
+      <div class="form-row">
+        <label>Full name *</label>
+        <input type="text" id="custName" placeholder="Marie Dupont" autocomplete="name">
+      </div>
+      <div class="form-2col">
+        <div class="form-row">
+          <label>Email *</label>
+          <input type="email" id="custEmail" placeholder="marie@example.com" autocomplete="email">
+        </div>
+        <div class="form-row">
+          <label>Phone *</label>
+          <input type="tel" id="custPhone" placeholder="(760) 555-0100" autocomplete="tel">
+        </div>
+      </div>
+
+      <div class="form-row" id="deliveryAddressRow" style="display:none;">
+        <label>Delivery address *</label>
+        <input type="text" id="custAddress" placeholder="1234 Ocean St, Carlsbad, CA 92008" autocomplete="street-address">
+      </div>
+
+      <div class="form-row">
+        <label>Pickup / Delivery time</label>
+        <select id="pickupTime">
+          <option value="asap">As soon as possible (~15 min)</option>
+          <option value="30">In 30 minutes</option>
+          <option value="45">In 45 minutes</option>
+          <option value="60">In 1 hour</option>
+          <option value="later">I'll call to confirm</option>
+        </select>
+      </div>
+
+      <div class="form-row">
+        <label>Special instructions</label>
+        <textarea id="custNotes" placeholder="Allergies, substitutions, extra sauce…"></textarea>
+      </div>
+
+      <!-- STRIPE CARD -->
+      <span class="payment-label">Card details</span>
+      <div id="stripe-card-element"></div>
+      <div id="card-errors"></div>
+
+      <button class="pay-btn" id="payBtn" onclick="submitPayment()">
+        Pay <span id="payAmount">$0.00</span> →
+      </button>
+      <div class="stripe-badge">🔒 Payments secured by <strong>Stripe</strong></div>
+
+    </div>
+  </div>
+</div>
+
+<!-- SUCCESS MODAL -->
+<div class="overlay" id="successOverlay">
+  <div class="modal" style="max-width:420px;">
+    <div class="success-modal">
+      <div class="success-check">✅</div>
+      <h2 class="success-title">Order confirmed!</h2>
+      <div class="success-eta">Ready in approximately 15 minutes</div>
+      <p class="success-sub" id="successMsg">Thank you! You'll receive a confirmation by email. Please have your name ready at the counter.</p>
+      <button class="close-btn" onclick="closeSuccess()">Back to menu</button>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="ft">
+    <div>
+      <div class="ft-fr">French</div>
+      <div class="ft-ln"></div>
+      <div class="ft-co">Corner ® · Cafés &amp; Bakeries</div>
+      <p class="ft-tg">Authentic Parisian café bringing the flavors of France to the Southern California coast. Made from scratch, every single day.</p>
+    </div>
+    <div class="fc">
+      <h4>Visit us</h4>
+      <p>2744 Carlsbad Blvd<br>Carlsbad, CA 92009<br>(760) 453-7475<br><br>1200 N Coast Hwy 101<br>Encinitas, CA 92024<br>(760) 230-2221</p>
+    </div>
+    <div class="fc">
+      <h4>Navigate</h4>
+      <a href="file:///Users/frenchcorner/Downloads/index.html">Home</a>
+      <a href="file:///Users/frenchcorner/Downloads/menu.html">Le menu</a>
+      <a href="file:///Users/frenchcorner/Downloads/order.html">Order online</a>
+      <a href="file:///Users/frenchcorner/Downloads/catering.html">Catering &amp; events</a>
+      <a href="file:///Users/frenchcorner/Downloads/blog.html">La Table Française</a>
+      <a href="file:///Users/frenchcorner/Downloads/index.html#locations">Locations &amp; hours</a>
+    </div>
+  </div>
+  <div class="ft-bot">
+    <span>© 2026 French Corner LLC · All rights reserved · A 3% service charge supports our team</span>
+    <span>frenchcorner.com</span>
+  </div>
+</footer>
+
+<script>
+// ─── MENU DATA ────────────────────────────────────────────────────────────────
+const MENU = {
+  cafe: [
+    { id:'c1', name:'Le Café du Jour', desc:'Organic French Roast, brewed fresh daily', price:5 },
+    { id:'c2', name:'Le Café au Lait', desc:'Café du jour with steamed milk', price:6 },
+    { id:'c3', name:"L'Espresso", desc:'1 shot espresso', price:4 },
+    { id:'c4', name:"L'Americano", desc:'Long espresso with hot water', price:5 },
+    { id:'c5', name:'La Noisette', desc:'Espresso with a splash of foamed milk', price:5 },
+    { id:'c6', name:'Le Nuage', desc:'Espresso with whipped cream', price:5 },
+    { id:'c7', name:'Le Café Crème', desc:'Espresso with a splash of foam cream', price:5 },
+    { id:'c8', name:'Le Latte', desc:'Espresso with steamed milk', price:5 },
+    { id:'c9', name:'Le Cappuccino', desc:'Espresso with foamed milk', price:5 },
+    { id:'c10', name:'Le Breve', desc:'Double espresso with steamed organic cream', price:7 },
+    { id:'c11', name:'Le Mocha', desc:'Double espresso with chocolate & steamed milk', price:7 },
+    { id:'c12', name:'Le Lavande', desc:'Double espresso, almond milk, lavender syrup & honey', price:7 },
+  ],
+  specialty: [
+    { id:'s1', name:'Le Café Noir', desc:'Espresso, steamed milk, Nutella & chocolate sauce', price:7 },
+    { id:'s2', name:'Le Café Blanc', desc:'Espresso, steamed coconut milk & white chocolate sauce', price:7 },
+    { id:'s3', name:'Le Café Miel', desc:'Espresso, steamed milk, cinnamon & honey', price:7 },
+    { id:'s4', name:'Le Café Bonbon', desc:'Long espresso poured over sweet condensed milk', price:7.50 },
+    { id:'s5', name:'Le Café Praline', desc:'Espresso, steamed milk, hazelnut & caramel syrups', price:7.50 },
+    { id:'s6', name:'Le Café Rouge', desc:'Espresso, steamed milk, raspberry syrup & chocolate sauce', price:7.50 },
+    { id:'s7', name:'Le Café Parisian', desc:'Double americano, chocolate sauce, lemon & orange syrups', price:7.50 },
+    { id:'s8', name:'Le Bulletproof', desc:'Espresso, almond milk, coconut butter, cinnamon & honey', price:7.50 },
+    { id:'s9', name:"L'Olive Drop", desc:'Espresso, organic soy milk, blue agave & olive oil', price:7.50 },
+  ],
+  breakfast: [
+    { id:'b1', name:'Breakfast Croissant', desc:'2 scrambled eggs, Gruyère cheese and French ham in a freshly baked croissant', price:14 },
+    { id:'b2', name:'Breakfast Frittata', desc:'Roasted potatoes, bacon & French ham frittata served with organic greens salad', price:15 },
+    { id:'b3', name:'Breakfast Crêpe', desc:'1 scrambled egg, Gruyère cheese, tomato & French ham', price:15 },
+    { id:'b4', name:'Vegetarian Breakfast Crêpe', desc:'1 scrambled egg, organic carrots, shaved onions, tomato, avocado & French Corner pesto', price:15 },
+    { id:'b5', name:'Breakfast Sandwich', desc:'2 scrambled eggs, French ham, tomato & Gruyère on a freshly baked baguette', price:14 },
+    { id:'b6', name:'Vegetarian Breakfast Sandwich', desc:'2 scrambled eggs, organic carrots, shaved onions, tomato & avocado on a freshly baked baguette', price:14 },
+    { id:'b7', name:'French Toast', desc:'2 brioche French Toast with fresh berries, sliced raw almonds & maple syrup', price:14 },
+    { id:'b8', name:'Greek Yogurt Parfait', desc:'French Corner granola, fresh berries, sliced raw almonds & honey', price:10 },
+    { id:'b9', name:'Almond Milk Oatmeal', desc:'Served with sliced banana, sliced raw almonds & maple syrup', price:10 },
+  ],
+  omelettes: [
+    { id:'o1', name:'Omelette du Soleil', desc:'3 eggs, organic baby spinach, tomato & Greek feta cheese', price:17 },
+    { id:'o2', name:'Omelette du Jardin', desc:'3 eggs, organic carrots, shaved onions, tomato & French Corner pesto', price:17 },
+    { id:'o3', name:'Omelette du Parisian', desc:'3 eggs, French ham, Gruyère cheese & shaved onions', price:17 },
+  ],
+  sweet: [
+    { id:'sw1', name:'La Provence', desc:'Sundried tomatoes, goat cheese, organic baby spinach & French Corner pesto', price:17, badge:'Chef\'s Pick' },
+    { id:'sw2', name:'La Sucre', desc:'European butter & vanilla sugar', price:10 },
+    { id:'sw3', name:'La Nutella', desc:'Nutella — add fresh bananas or strawberries +$2', price:11 },
+    { id:'sw4', name:'La Confiture', desc:'Organic strawberry or apricot preserves with European butter', price:10 },
+    { id:'sw5', name:'La Citron', desc:'Fresh squeezed organic lemon juice, European butter & vanilla sugar', price:11 },
+    { id:'sw6', name:"L'Orange", desc:'Fresh squeezed organic orange juice, European butter & vanilla sugar', price:11 },
+    { id:'sw7', name:'La Fruit Rouge', desc:'Fresh berries & chocolate ganache', price:13 },
+    { id:'sw8', name:'La Caramel Banane', desc:'Sliced bananas, raw walnuts & fleur de sel caramel sauce', price:13 },
+  ],
+  savory: [
+    { id:'sa1', name:'La Provence', desc:'Sundried tomatoes, goat cheese, organic baby spinach & French Corner pesto', price:17 },
+    { id:'sa2', name:'La Dinde', desc:'Oven roasted turkey, aged cheddar, organic arugula & French Corner pesto', price:17 },
+    { id:'sa3', name:'La Caprese', desc:'Fresh mozzarella, tomato & French Corner pesto', price:15 },
+    { id:'sa4', name:'La Végétarienne', desc:'Organic carrots, tomato, avocado, shaved onions & French Corner pesto', price:15 },
+    { id:'sa5', name:'La Jambon-Fromage', desc:'French ham, Gruyère cheese & French cornichon pickles', price:15 },
+  ],
+  sandwiches: [
+    { id:'sn1', name:'Le Jambon Beurre', desc:'French ham, Gruyère, European butter & cornichon pickles', price:12 },
+    { id:'sn2', name:'Le Dinde', desc:'Roasted turkey, aged cheddar, French Corner pesto & arugula', price:12 },
+    { id:'sn3', name:'Le Saucisson', desc:'Italian dry salami, French brie, European butter & cornichon pickles', price:12 },
+    { id:'sn4', name:'Le Parme', desc:'Prosciutto di Parma, sliced mozzarella & French Corner pesto', price:13 },
+    { id:'sn5', name:'Le Fromage', desc:'Selection of French cheeses, European butter & fig jam', price:12 },
+    { id:'sn6', name:'Le Poulet', desc:'Herb-roasted chicken, avocado, arugula & Dijon aioli', price:13 },
+    { id:'sn7', name:'Le Thon', desc:'Albacore tuna, capers, Dijon, red onion & mixed greens', price:12 },
+    { id:'sn8', name:'Le Pâté', desc:'Country pâté, cornichon pickles & grain mustard on baguette', price:12 },
+    { id:'sn9', name:'Le Caprese', desc:'Fresh mozzarella, heirloom tomato, basil pesto & sea salt', price:12 },
+    { id:'sn10', name:'Le Végétarien', desc:'Avocado, shaved carrots, cucumber, arugula & lemon vinaigrette', price:12 },
+    { id:'sn11', name:'Le Nutella', desc:'Nutella with sliced banana & European butter on toasted baguette', price:8 },
+  ],
+  salads: [
+    { id:'sl1', name:'La Niçoise', desc:'Albacore tuna, Niçoise olives, haricot verts, egg, capers & Dijon vinaigrette', price:17 },
+    { id:'sl2', name:'La Caprese', desc:'Fresh mozzarella, heirloom tomato, basil & extra virgin olive oil', price:15 },
+    { id:'sl3', name:'La Chèvre', desc:'Goat cheese, candied walnuts, seasonal fruit & honey vinaigrette', price:15 },
+    { id:'sl4', name:'La Végétarienne', desc:'Organic mixed greens, avocado, shaved carrots, cucumber & lemon vinaigrette', price:13 },
+    { id:'sl5', name:'La Campagne', desc:'Roasted chicken, organic greens, shaved parmesan & Dijon vinaigrette', price:17 },
+    { id:'sl6', name:'La Poulette', desc:'Herb roasted chicken, roasted beets, goat cheese & balsamic glaze', price:17 },
+    { id:'sl7', name:'La Pommette', desc:'Sliced apple, aged cheddar, candied walnuts & apple cider vinaigrette', price:15 },
+    { id:'sl8', name:'La Verte', desc:'Organic baby greens, cherry tomato, cucumber & Dijon vinaigrette', price:12 },
+    { id:'sl9', name:'Salade de Fruits', desc:'Seasonal organic fresh fruit with mint & honey', price:7 },
+  ],
+  tartines: [
+    { id:'t1', name:'Tartine Beurre', desc:'Freshly baked baguette with European butter & sea salt', price:5 },
+    { id:'t2', name:'Tartine Amande', desc:'Toasted baguette with almond butter & organic honey', price:7 },
+    { id:'t3', name:'Tartine aux Avocats', desc:'Smashed avocado, cherry tomato, arugula & fleur de sel on toasted baguette', price:12 },
+    { id:'t4', name:'Tartine au Bleu', desc:'Roquefort, pear, candied walnuts & honey on toasted baguette', price:12 },
+  ],
+  specialties: [
+    { id:'sp1', name:'Quiche or Frittata', desc:'Check daily specials — with organic greens salad & Dijon vinaigrette', price:15 },
+    { id:'sp2', name:'Provençal French Stuffed Tomato', desc:'Large baked tomato stuffed with turkey & our secret sauce — with organic greens salad & Dijon vinaigrette', price:16, badge:"Chef's Special" },
+  ],
+};
+
+// ─── STATE ────────────────────────────────────────────────────────────────────
+let cart = {};
+let orderType = 'pickup';
+let location = 'carlsbad';
+let stripe = null;
+let cardElement = null;
+
+// ─── INIT STRIPE ──────────────────────────────────────────────────────────────
+// Replace 'pk_test_YOUR_KEY' with your Stripe publishable key
+const STRIPE_KEY = 'pk_live_51QVdRlEfmA9Vm9C4rAzQkINHW0ootZ3bUO9JqRLUV4vMRyf54ih137aXTTfeIzFo48N4y8o4J0Khgm7ASRwkfNcx00FrmE7dnj';
+const SERVER_URL = 'https://frenchcorner-server-production.up.railway.app';
+
+function initStripe() {
+  try {
+    stripe = Stripe(STRIPE_KEY);
+    const elements = stripe.elements();
+    cardElement = elements.create('card', {
+      style: {
+        base: {
+          fontFamily: '"Jost", sans-serif',
+          fontSize: '14px',
+          color: '#111',
+          '::placeholder': { color: '#aaa' }
+        }
+      }
+    });
+    cardElement.mount('#stripe-card-element');
+    cardElement.on('change', e => {
+      document.getElementById('card-errors').textContent = e.error ? e.error.message : '';
+    });
+  } catch(e) {
+    console.warn('Stripe not initialized — add your publishable key');
+  }
+}
+
+// ─── RENDER MENU ──────────────────────────────────────────────────────────────
+function renderMenu() {
+  Object.entries(MENU).forEach(([cat, items]) => {
+    const container = document.getElementById('items-' + cat);
+    if (!container) return;
+    container.innerHTML = items.map(item => `
+      <div class="menu-item" id="item-${item.id}">
+        <div class="item-info">
+          <div class="item-name">
+            ${item.name}
+            ${item.badge ? `<span class="item-badge">${item.badge}</span>` : ''}
+          </div>
+          <div class="item-desc">${item.desc}</div>
+        </div>
+        <div class="item-right">
+          <div class="item-price">$${item.price % 1 === 0 ? item.price : item.price.toFixed(2)}</div>
+          <button class="add-btn" id="btn-${item.id}" onclick="addToCart('${item.id}','${cat}')" title="Add to cart">+</button>
+        </div>
+      </div>
+    `).join('');
+  });
+}
+
+// ─── CART LOGIC ───────────────────────────────────────────────────────────────
+function findItem(id) {
+  for (const items of Object.values(MENU)) {
+    const found = items.find(i => i.id === id);
+    if (found) return found;
+  }
+  return null;
+}
+
+function addToCart(id, cat) {
+  const item = findItem(id);
+  if (!item) return;
+  cart[id] = cart[id] ? { ...cart[id], qty: cart[id].qty + 1 } : { ...item, qty: 1 };
+  const btn = document.getElementById('btn-' + id);
+  if (btn) btn.classList.add('added');
+  renderCart();
+}
+
+function changeQty(id, delta) {
+  if (!cart[id]) return;
+  cart[id].qty += delta;
+  if (cart[id].qty <= 0) {
+    delete cart[id];
+    const btn = document.getElementById('btn-' + id);
+    if (btn) btn.classList.remove('added');
+  }
+  renderCart();
+}
+
+function renderCart() {
+  const items = Object.values(cart);
+  const count = items.reduce((s,i) => s + i.qty, 0);
+  const subtotal = items.reduce((s,i) => s + i.price * i.qty, 0);
+
+  document.getElementById('cartCount').textContent = count + (count === 1 ? ' item' : ' items');
+  document.getElementById('cartSubtotal').textContent = '$' + subtotal.toFixed(2);
+  document.getElementById('checkoutBtn').disabled = count === 0;
+
+  const container = document.getElementById('cartItems');
+  if (items.length === 0) {
+    container.innerHTML = '<div class="cart-empty"><div class="cart-empty-icon">🥐</div><div class="cart-empty-text">Your cart is empty</div></div>';
+    return;
+  }
+  container.innerHTML = items.map(i => `
+    <div class="cart-item">
+      <div class="ci-name">${i.name}</div>
+      <div class="ci-qty">
+        <button class="qty-btn" onclick="changeQty('${i.id}',-1)">−</button>
+        <span class="qty-num">${i.qty}</span>
+        <button class="qty-btn" onclick="changeQty('${i.id}',1)">+</button>
+      </div>
+      <div class="ci-price">$${(i.price * i.qty).toFixed(2)}</div>
+    </div>
+  `).join('');
+}
+
+// ─── CHECKOUT MODAL ───────────────────────────────────────────────────────────
+function openCheckout() {
+  const items = Object.values(cart);
+  if (!items.length) return;
+
+  const subtotal = items.reduce((s,i) => s + i.price * i.qty, 0);
+  const service = subtotal * 0.03;
+  const total = subtotal + service;
+
+  // Populate summary
+  document.getElementById('modalSummary').innerHTML = items.map(i =>
+    `<div class="os-line"><span>${i.qty}× ${i.name}</span><span>$${(i.price*i.qty).toFixed(2)}</span></div>`
+  ).join('') + `<div class="os-line"><span>Service charge (3%)</span><span>$${service.toFixed(2)}</span></div>`;
+
+  document.getElementById('modalTotal').textContent = '$' + total.toFixed(2);
+  document.getElementById('payAmount').textContent = '$' + total.toFixed(2);
+
+  const addrRow = document.getElementById('deliveryAddressRow');
+  addrRow.style.display = orderType === 'delivery' ? 'block' : 'none';
+
+  document.getElementById('checkoutOverlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+
+  if (!cardElement) setTimeout(initStripe, 100);
+}
+
+function closeCheckout() {
+  document.getElementById('checkoutOverlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+function closeOnBackdrop(e) {
+  if (e.target.id === 'checkoutOverlay') closeCheckout();
+}
+
+// ─── PAYMENT ──────────────────────────────────────────────────────────────────
+async function submitPayment() {
+  const name = document.getElementById('custName').value.trim();
+  const email = document.getElementById('custEmail').value.trim();
+  const phone = document.getElementById('custPhone').value.trim();
+
+  if (!name || !email || !phone) {
+    alert('Please fill in your name, email and phone number.');
+    return;
+  }
+
+  const btn = document.getElementById('payBtn');
+  btn.disabled = true;
+  btn.textContent = 'Processing…';
+
+  try {
+    const items = Object.values(cart);
+    const subtotal = items.reduce((s,i) => s + i.price * i.qty, 0);
+    const total = subtotal * 1.03;
+    const res = await fetch(SERVER_URL + '/api/create-payment-intent', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ amount: parseFloat(total.toFixed(2)), location: location })
+    });
+    const { clientSecret } = await res.json();
+    const result = await stripe.confirmCardPayment(clientSecret, {
+      payment_method: { card: cardElement, billing_details: { name, email } }
+    });
+    if (result.error) {
+      document.getElementById('card-errors').textContent = result.error.message;
+      btn.disabled = false;
+      btn.textContent = 'Pay ' + document.getElementById('payAmount').textContent + ' →';
+    } else {
+      showSuccess(name, email);
+    }
+  } catch (err) {
+    document.getElementById('card-errors').textContent = 'Something went wrong. Please try again.';
+    btn.disabled = false;
+    btn.textContent = 'Pay ' + document.getElementById('payAmount').textContent + ' →';
+  }
+}
+
+function showSuccess(name, email) {
+  closeCheckout();
+  const loc = location === 'carlsbad' ? '2744 Carlsbad Blvd' : '1200 N Coast Hwy 101, Encinitas';
+  document.getElementById('successMsg').textContent =
+    `Thank you, ${name.split(' ')[0]}! A confirmation will be sent to ${email}. ` +
+    (orderType === 'pickup' ? `Your order will be ready at ${loc} in approximately 15 minutes.` : 'Our driver will be on the way shortly!');
+  document.getElementById('successOverlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+  cart = {};
+  renderCart();
+  document.querySelectorAll('.add-btn').forEach(b => b.classList.remove('added'));
+}
+
+function closeSuccess() {
+  document.getElementById('successOverlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+// ─── SELECTOR ─────────────────────────────────────────────────────────────────
+function selectLocation(btn, loc) {
+  document.querySelectorAll('.sel-group:first-child .sel-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  location = loc;
+  updatePickupBanner();
+}
+
+function selectType(btn, type) {
+  document.querySelectorAll('.sel-group:nth-child(2) .sel-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  orderType = type;
+  updatePickupBanner();
+}
+
+function updatePickupBanner() {
+  const text = document.getElementById('pickup-text');
+  if (orderType === 'pickup') {
+    text.innerHTML = '<strong>Now open</strong> &nbsp;· Pickup ready in ~15 min';
+  } else {
+    text.innerHTML = '<strong>Delivery available</strong> &nbsp;· Est. 35–50 min';
+  }
+}
+
+// ─── CATEGORY NAV SCROLL ──────────────────────────────────────────────────────
+function scrollTo(cat) {
+  const el = document.getElementById('sec-' + cat);
+  if (el) {
+    const offset = el.getBoundingClientRect().top + window.scrollY - 130;
+    window.scrollTo({ top: offset, behavior: 'smooth' });
+  }
+  document.querySelectorAll('.cat-nav a').forEach(a => a.classList.remove('active'));
+  event.target.classList.add('active');
+}
+
+window.addEventListener('scroll', () => {
+  const secs = document.querySelectorAll('.menu-section');
+  const navLinks = document.querySelectorAll('.cat-nav a');
+  let current = '';
+  secs.forEach(s => {
+    if (window.scrollY >= s.offsetTop - 160) current = s.id.replace('sec-', '');
+  });
+  navLinks.forEach((a, i) => {
+    const cats = ['cafe','specialty','breakfast','omelettes','sweet','savory','sandwiches','salads','tartines','specialties'];
+    a.classList.toggle('active', cats[i] === current);
+  });
+});
+
+// ─── BOOT ─────────────────────────────────────────────────────────────────────
+renderMenu();
+renderCart();
+</script>
+
+
+<iframe name="__privateStripeMetricsController6130" frameborder="0" allowtransparency="true" scrolling="no" role="presentation" allow="payment *" src="./Order_files/m-outer-3437aaddcdf6922d623e172c2d6f9278.html" aria-hidden="true" tabindex="-1" style="border-width: medium !important; border-style: none !important; border-color: currentcolor !important; border-image: initial !important; margin: 0px !important; padding: 0px !important; width: 1px !important; min-width: 100% !important; overflow: hidden !important; display: block !important; visibility: hidden !important; position: fixed !important; height: 1px !important; pointer-events: none !important; user-select: none !important;"></iframe></body></html>
